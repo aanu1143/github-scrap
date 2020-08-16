@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+ 
+{% block content %}
+    <h3>{{ username }}</h3>
+    <h3>{{ name }}</h3>
+    <img src="{{ img }}" alt="error">
+    {% for repo in repos %}
+        <a href="{{ repo.link }}" target="_blank">
+            <h3>{{ repo.projectname }}</h3>
+        </a>
+        {% if repo.description %}
+            <p>{{ repo.description }}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

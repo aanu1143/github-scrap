@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <input type="text" id="inputURL" name="inputURL" value=""><br>
+    <input type="button" value="click" OnClick="buttonClick()"/>
+    
+{% endblock content %}
+    
+ {% block jscript %}
+    <script language="javascript" type="text/javascript">
+
+        document.querySelector('#inputURL').onkeyup = function(e) {
+            if (e.keyCode === 13) { 
+                buttonClick();
+            }
+        };
+
+        function buttonClick(){
+            var url = "user/"+document.getElementById("inputURL").value;
+            window.location = url;
+        }
+    </script>
+{% endblock jscript %}
