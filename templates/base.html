@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Git Repo</title>
     <link href="{% static 'base.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 
@@ -23,11 +25,15 @@
             </div>
         </div>
     </div>
+    
+    <!-- particles.js container -->
+   
 
     {% block content %}
     {% endblock content %}
 
     {% block jscript %}
+    
     {% endblock jscript %}
 
 </body>

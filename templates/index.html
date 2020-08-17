@@ -3,6 +3,8 @@
 
 {% block content %}
 
+    <div id="particles-js"></div>
+
     <div class="title">
         <h3>Search your repo here...</h3>
     </div>
@@ -16,6 +18,13 @@
 {% endblock content %}
     
  {% block jscript %}
+
+    <script src="{% static 'particles.js' %}"></script>
+    <script src="{% static 'app.js' %}"></script>
+    <script src="{% static 'lib/stats.js' %}"></script>
+    
+
+
     <script language="javascript" type="text/javascript">
 
         function searchClick() {
