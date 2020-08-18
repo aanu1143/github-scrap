@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .session import get_session
 from bs4 import BeautifulSoup
+from django.views.decorators.cache import cache_page
 
 def getUserDetail(username):
     session = get_session()
@@ -39,11 +40,18 @@ def getRepo(username):
 def index(request):
     return render(request, 'index.html')
 
+
 def gituser(request, username):
-    try:
-        userdetail = getUserDetail(username)
-        repos = getRepo(username)
-        data = {'name': userdetail[0], 'username': userdetail[1], 'img': userdetail[2], 'repos': repos}
-        return render(request, 'profile.html', data)
-    except:
-        return render(request, 'error.html')
+    userdetail = getUserDetail(username)
+    repos = getRepo(username)
+    data = {'name': userdetail[0], 'username': userdetail[1], 'img': userdetail[2], 'repos': repos}
+    return render(request, 'profile.html', data)
+
+# def gituser(request, username):
+#     try:
+#         userdetail = getUserDetail(username)
+#         repos = getRepo(username)
+#         data = {'name': userdetail[0], 'username': userdetail[1], 'img': userdetail[2], 'repos': repos}
+#         return render(request, 'profile.html', data)
+#     except:
+#         return render(request, 'error.html')
