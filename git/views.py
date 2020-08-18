@@ -15,6 +15,17 @@ def getUserDetail(username):
     data = [name, user_name, profile_pic]
     return data
 
+def getFollow(username):
+    session = get_session()
+    url = "https://github.com/"+username
+    page = session.get(url)
+    profile_soup = BeautifulSoup(page.content, 'html.parser')
+    follows = profile_soup.find('div', class_="flex-order-1 flex-md-order-none mt-2 mt-md-0").find('div').find_all('a')
+    followers = x[0].find('span').text
+    followings = x[1].find('span').text
+    stars = x[2].find('span').text
+    return {"followers": followers, "followings": followings, "stars": stars}
+
 def getRepo(username):
     session = get_session()
     url = "https://github.com/"+username+"?tab=repositories"
@@ -44,7 +55,9 @@ def index(request):
 def gituser(request, username):
     userdetail = getUserDetail(username)
     repos = getRepo(username)
+    follows = getFollow(username)
     data = {'name': userdetail[0], 'username': userdetail[1], 'img': userdetail[2], 'repos': repos}
+    data.update(follows)
     return render(request, 'profile.html', data)
 
 # def gituser(request, username):
