@@ -16,10 +16,36 @@
                 <p>@{{ username }}</p>
             </div>
             <div class="sub">
+                <img src="https://img.icons8.com/material-rounded/24/000000/add-user-male.png"/>
+                <img src="https://img.icons8.com/windows/32/000000/following.png"/>
+                <img src="https://img.icons8.com/small/32/000000/star.png"/>
+                
             </div>
         </div>
         <div class="repos">
-            repository
+            <div class="heading">
+                <h2>{{ repos.title }}</h2>
+                <a href="#"><h4>View all</h4></a>
+            </div>
+            <div class="repobox">
+                {% for repo in repos.repolist %}
+                    <div class="box">
+                        <a href="{{ repo.link }}" target="_blank" class="repotitle">
+                            {% if repo.fork %}
+                            <img src="https://img.icons8.com/material/24/000000/code-fork--v2.png"/>
+                            {% endif %}
+                            <p>{{ repo.name }}</p></a>
+                        {% if repo.fork %}
+                            <a href="{{ repo.forkdata.link }}" class="fork" target="_blank"><span>{{ repo.forkdata.text }}</span></a>
+                        {% endif %}
+                        {% if repo.des %}
+                            <p class="fork des">{{ repo.des }}</p>
+                        {% endif %}
+                        <p class="fork lang"><img src="https://img.icons8.com/ultraviolet/40/000000/pin.png"/>&nbsp;&nbsp;{{ repo.lang }}</p>
+                    </div>
+                {% endfor %}
+                
+            </div>
         </div>
     </div>
 </div>
