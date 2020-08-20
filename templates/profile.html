@@ -11,21 +11,27 @@
             <div class="img">
                 <img class="avatar" src="{{ img }}" alt="error">
             </div>
-            <div class="name">
-                <h4>{{ name }}</h4>
-                <p>@{{ username }}</p>
-            </div>
-            <div class="sub">
-                <img src="https://img.icons8.com/material-rounded/24/000000/add-user-male.png"/>
-                <img src="https://img.icons8.com/windows/32/000000/following.png"/>
-                <img src="https://img.icons8.com/small/32/000000/star.png"/>
-                
+            <div class="userdet">
+                <div class="name">
+                    <h4>{{ name }}</h4>
+                    <p>@{{ username }}</p>
+                </div>
+                <div class="about">
+                    <p>{{ about }}</p>
+                </div>
+                {% if followers %}
+                    <div class="follow">
+                        <p><img src="https://img.icons8.com/material-rounded/24/000000/add-user-male.png"/>{{ followers }}</p>
+                        <p><img src="https://img.icons8.com/windows/32/000000/following.png"/>{{ followings }}</p>
+                        <p><img src="https://img.icons8.com/small/32/000000/star.png"/>{{ stars }}</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
         <div class="repos">
             <div class="heading">
                 <h2>{{ repos.title }}</h2>
-                <a href="#"><h4>View all</h4></a>
+                <a href="{% url 'repos' username %}"><h4>View all</h4></a>
             </div>
             <div class="repobox">
                 {% for repo in repos.repolist %}
@@ -41,7 +47,9 @@
                         {% if repo.des %}
                             <p class="fork des">{{ repo.des }}</p>
                         {% endif %}
-                        <p class="fork lang"><img src="https://img.icons8.com/ultraviolet/40/000000/pin.png"/>&nbsp;&nbsp;{{ repo.lang }}</p>
+                        {% if repo.lang %}
+                            <p class="fork lang"><img src="https://img.icons8.com/ultraviolet/40/000000/pin.png"/>&nbsp;&nbsp;{{ repo.lang }}</p>
+                        {% endif %}
                     </div>
                 {% endfor %}
                 
@@ -49,19 +57,4 @@
         </div>
     </div>
 </div>
-
-{% comment %}
-    <h3>{{ username }}</h3>
-    <h3>{{ name }}</h3>
-    <img src="https://camo.githubusercontent.com/58151d96855b52518ad312c714ff3713fff228c0/68747470733a2f2f6f63746f6465782e6769746875622e636f6d2f696d616765732f68756c615f6c6f6f705f6f63746f64657830332e676966" style="width: 100px" alt="error">
-    
-    
-     {% for repo in repos %}
-        <a href="{{ repo.link }}" target="_blank">
-            <h3>{{ repo.projectname }}</h3>
-        </a>
-        {% if repo.description %}
-            <p>{{ repo.description }}</p>
-        {% endif %}
-    {% endfor %} {% endcomment %}
 {% endblock content %}

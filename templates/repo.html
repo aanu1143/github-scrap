@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'repo.css' %}">
+{% endblock static %}
+ 
+{% block content %}
+    <div class="cont">
+        <div class="repocont">
+            {% for repo in repos %}
+                <div class="box">
+                    <a href="{{ repo.link }}" target="_blank" class="repotitle">
+                        {% if repo.fork %}
+                        <img src="https://img.icons8.com/material/24/000000/code-fork--v2.png"/>&nbsp;
+                        {% endif %}
+                        <p>{{ repo.name }}</p></a>
+                        {% if repo.fork %}
+                            <a href="{{ repo.forkdata.link }}" class="fork" style="color: rgb(243, 153, 117);" target="_blank"><span>{{ repo.forkdata.text }}</span></a>
+                        {% endif %}
+                        {% if repo.des %}
+                            <p class="fork des">{{ repo.des }}</p>
+                        {% endif %}
+                    <div class="fork lang">
+                        {% if repo.lang %}
+                            <img src="https://img.icons8.com/ultraviolet/40/000000/pin.png"/>&nbsp;&nbsp; <p>{{ repo.lang }}</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                        {% endif %}
+                        <p class="times">{{ repo.updated }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

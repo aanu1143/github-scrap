@@ -138,8 +138,14 @@ body {
 
 .details {
     display: grid;
-    grid-template-rows: 6vw 30% auto;
+    grid-template-rows: 6vw auto;
     border-right: 1px solid;
+}
+
+.userdet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .repos {
@@ -178,8 +184,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid rgb(231, 230, 230);
-    width: 95%;
-    height: 8vw;
+    width: 97%;
+    height: 95%;
     margin: 1vw;
     padding: 1vw;
 }
@@ -218,3 +224,12 @@ body {
  .lang {
      color: rgb(245, 49, 108);
  }
+
+ .follow {
+     display: flex;
+     justify-content: center;
+ }
+
+ .follow p{
+     padding-right: 7px;
+}

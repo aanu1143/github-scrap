@@ -9,11 +9,14 @@ def getUserDetail(username):
     page = session.get(url)
     profile_soup = BeautifulSoup(page.content, 'html.parser')
     profile = profile_soup.find('div', class_="h-card mt-md-n5")
+    timeline = profile.find('div', class_="p-note user-profile-bio mb-3 js-user-profile-bio f4").find('div')
+    about=''
+    if timeline:
+        about = timeline.text
     profile_pic = profile.find('div', class_="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0").find('img')['src']
     name = profile.find('span', class_="p-name vcard-fullname d-block overflow-hidden").text
     user_name = profile.find('span', class_="p-nickname vcard-username d-block").text
-    data = [name, user_name, profile_pic]
-    return data
+    return {'name': name, 'username': user_name, 'img': profile_pic, 'about': about}
 
 def getFollow(username):
     try:
@@ -39,9 +42,21 @@ def getRepo(username):
     for repo in repos:
         project = repo.find('div').find('div').find('h3').find('a')
         project_name = project.text
+        timestamp = repo.find('div', class_="f6 text-gray mt-2").text
+        forkcontent = repo.find('span', class_="f6 text-gray mb-1")
         project_link = 'https://github.com'+ project['href']
         des = repo.find('div').find_all('div')[1].find('p')
-        temp = {'name': project_name, 'link': project_link}
+        temp = {'name': project_name, 'link': project_link, 'updated': timestamp[timestamp.index("Updated"):]}
+        langx = repo.find('div', class_="f6 text-gray mt-2").find('span', itemprop="programmingLanguage")
+        fork = False
+        if forkcontent:
+            fork = True
+            forkedLink = "https://github.com" + forkcontent.find('a')['href']
+            forked = forkcontent.text
+            temp['forkdata'] = {'text': forked, 'link': forkedLink}
+        temp['fork'] = fork
+        if langx:
+            temp['lang'] = langx.text
         if des:
             temp['des'] = des.text
         else:
@@ -83,21 +98,25 @@ def getPinnedRepo(username):
 def index(request):
     return render(request, 'index.html')
 
-
 def gituser(request, username):
-    userdetail = getUserDetail(username)
-    repos = getPinnedRepo(username)
+    data=getUserDetail(username)
+    data['repos'] = getPinnedRepo(username)
     follows = getFollow(username)
-    data = {'name': userdetail[0], 'username': userdetail[1], 'img': userdetail[2], 'repos': repos}
     if follows:
         data.update(follows)
     return render(request, 'profile.html', data)
 
 # def gituser(request, username):
 #     try:
-#         userdetail = getUserDetail(username)
-#         repos = getRepo(username)
-#         data = {'name': userdetail[0], 'username': userdetail[1], 'img': userdetail[2], 'repos': repos}
+#         data=getUserDetail(username)
+#         data['repos'] = getPinnedRepo(username)
+#         follows = getFollow(username)
+#         if follows:
+#             data.update(follows)
 #         return render(request, 'profile.html', data)
 #     except:
 #         return render(request, 'error.html')
+
+def repos(request, username):
+    data = getRepo(username)
+    return render(request, 'repo.html', {'repos': data})
