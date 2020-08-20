@@ -120,3 +120,6 @@ def gituser(request, username):
 def repos(request, username):
     data = getRepo(username)
     return render(request, 'repo.html', {'repos': data})
+
+def about(request):
+    return render(request, 'about.html')

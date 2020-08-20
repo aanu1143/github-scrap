@@ -1,0 +1,39 @@
+@media screen and (max-width:700px) {
+    .search-bar:hover{
+        width: 70%;
+    }
+    .prof-tab {
+        grid-template-rows: 25% auto;
+        grid-template-columns: 100%;
+    }
+    .details {
+        border-right: 0;
+        border-bottom: 1px solid rgb(211, 207, 207);
+    }
+    .repos {
+        border-left: 0;
+
+    }
+    .prof-tab {
+        width: 88%;
+    }
+
+    .heading {
+        top: 3vw;
+        margin: 3vw 4vw;
+    }
+
+    .repobox {
+        grid-template-columns: 49% 50%;
+        height: 85%;
+    }
+
+    .box {
+        height: 7em;
+        padding: 15px;
+    }
+
+    .box a p {
+        font-size: 14px;
+    }
+}
