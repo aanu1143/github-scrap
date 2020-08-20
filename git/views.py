@@ -98,24 +98,24 @@ def getPinnedRepo(username):
 def index(request):
     return render(request, 'index.html')
 
-def gituser(request, username):
-    data=getUserDetail(username)
-    data['repos'] = getPinnedRepo(username)
-    follows = getFollow(username)
-    if follows:
-        data.update(follows)
-    return render(request, 'profile.html', data)
-
 # def gituser(request, username):
-#     try:
-#         data=getUserDetail(username)
-#         data['repos'] = getPinnedRepo(username)
-#         follows = getFollow(username)
-#         if follows:
-#             data.update(follows)
-#         return render(request, 'profile.html', data)
-#     except:
-#         return render(request, 'error.html')
+#     data=getUserDetail(username)
+#     data['repos'] = getPinnedRepo(username)
+#     follows = getFollow(username)
+#     if follows:
+#         data.update(follows)
+#     return render(request, 'profile.html', data)
+
+def gituser(request, username):
+    try:
+        data=getUserDetail(username)
+        data['repos'] = getPinnedRepo(username)
+        follows = getFollow(username)
+        if follows:
+            data.update(follows)
+        return render(request, 'profile.html', data)
+    except:
+        return render(request, 'error.html')
 
 def repos(request, username):
     data = getRepo(username)
