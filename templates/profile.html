@@ -13,8 +13,10 @@
             </div>
             <div class="userdet">
                 <div class="name">
-                    <h4>{{ name }}</h4>
-                    <p>@{{ username }}</p>
+                    {% if name %}
+                        <h4>{{ name }}</h4>
+                    {% endif %}
+                    <a href="https://github.com/{{ username }}" target="_blank"><p>@{{ username }}</p></a>
                 </div>
                 <div class="about">
                     <p>{{ about }}</p>
@@ -30,7 +32,7 @@
         </div>
         <div class="repos">
             <div class="heading">
-                <h2>{{ repos.title }}</h2>
+                <h4>{{ repos.title }}</h4>
                 <a href="{% url 'repos' username %}"><h4>View all</h4></a>
             </div>
             <div class="repobox">
