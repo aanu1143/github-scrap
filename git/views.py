@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.cache import cache_page
 from .utils import getUserDetail, getPinnedRepo, getFollow, getRepo
 
-
+@cache_page(60*60)
 def index(request):
     return render(request, 'index.html')
 

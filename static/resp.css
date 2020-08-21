@@ -3,13 +3,14 @@
         width: 70%;
     }
     .prof-tab {
-        grid-template-rows: 25% auto;
+        grid-template-rows: 30% auto;
         grid-template-columns: 100%;
+        margin-top: 17vw;
     }
     .details {
         border-right: 0;
         border-bottom: 1px solid rgb(211, 207, 207);
-        grid-template-rows: 6vw auto;
+        grid-template-rows: 13vw auto;
     }
     .repos {
         border-left: 0;
@@ -17,7 +18,12 @@
     }
 
     .profile {
-        height: 85vh;
+        height: 80vh;
+    }
+
+    .avatar {
+        top: -10vw;
+        width: 20vw;
     }
 
     .prof-tab {
