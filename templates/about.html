@@ -4,6 +4,21 @@
  
 {% block content %}
     <div class="info">
-        <h1>Hey, I'm Anand Biswas</h1>
+        <div class="container">
+            <div class="left">
+                <h1>Hey, I'm Anand Biswas</h1>
+                <p>I developed this website while I'm learning python scraping. A platform where you can get your GitHub account and repos.</p>
+                <span> Reach out to me:  </span>
+                <div class="contact">
+                    <a href="https://www.linkedin.com/in/anand-biswas-057356153/" target="_blank"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/></a>
+                    <a href="https://github.com/aanu1143" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/github.png"/></a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="aboutimg">
+                    <img src="{% static 'about.svg' %}" alt="error">
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}

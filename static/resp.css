@@ -22,6 +22,8 @@
 
     .prof-tab {
         width: 88%;
+        box-shadow: none;
+        border: 0.5px solid rgb(233, 233, 233);
     }
 
     .heading {
@@ -34,6 +36,10 @@
         height: 85%;
     }
 
+    .cont {
+        margin: 5vw 3vw;
+    }
+
     .box {
         height: 7em;
         padding: 15px;
@@ -41,5 +47,30 @@
 
     .box a p {
         font-size: 14px;
+    }
+
+    .search-txt {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 90%;
+        height: 90%;
+        grid-template-columns: 100%;
+        grid-template-rows: 60% 40%;
+        box-shadow: none;
+    }
+
+
+    .left {
+        text-align: center;
+    }
+
+    .left h1 {
+        font-size: 30px;
+    }
+
+    .aboutimg {
+        justify-content: center;
     }
 }
