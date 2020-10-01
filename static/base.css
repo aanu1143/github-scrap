@@ -1,291 +1,304 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 .nav {
-    padding: 15px 0px;
-    border-bottom: 0.5px solid rgb(228, 227, 227);
+  padding: 15px 0px;
+  border-bottom: 0.5px solid rgb(228, 227, 227);
 }
 
 .head {
-    font-size: 3vh;
-    display: flex;
-    justify-content: space-around;
+  font-size: 3vh;
+  display: flex;
+  justify-content: space-around;
 }
 
-.detail a{
-    text-decoration: none;
-    color: black;
-    margin-right: 10px;
+.detail a {
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
 }
 
 .title {
-    position: absolute;
-    top: 25vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 25vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title h3 {
-    font-family: monospace;
-    font-size: 5vw;
-    overflow: hidden; 
-    border-right: .12em solid rgb(59, 59, 59); 
-    white-space: nowrap; 
-    margin: 0 auto;
-    animation: 
-      typing 2.5s steps(30),
-      blink-caret .75s step-end infinite;
+  font-family: monospace;
+  font-size: 5vw;
+  overflow: hidden;
+  border-right: 0.12em solid rgb(59, 59, 59);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 2.5s steps(30), blink-caret 0.75s step-end infinite;
 }
-  
+
 @keyframes typing {
-    from { width: 0 }
-    to { width: 72% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 72%;
+  }
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
-
 
 .search-bar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0.5px solid rgb(175, 174, 174);
-    border-radius: 40px;
-    padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid rgb(175, 174, 174);
+  border-radius: 40px;
+  padding: 10px;
 }
-
 
 .search-bar:hover > .search-txt {
-    width: 20vh;
-    padding: 0 6px;
+  width: 20vh;
+  padding: 0 6px;
 }
 
-   
 .search-bar:hover > .search-btn {
-    background: white;
-    color: black;
+  background: white;
+  color: black;
 }
 
-   
 .search-btn {
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 0.5px solid rgb(175, 174, 174);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    cursor: pointer;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0.5px solid rgb(175, 174, 174);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
 }
-   
+
 .search-btn > i {
-    font-size: 30px;
+  font-size: 30px;
 }
-   
+
 .search-txt {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
 }
 
 .profile {
-    height: 70vh;
-    text-align: -webkit-center;
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  text-align: -webkit-center;
 }
 
 .prof-tab {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    width: 70%;
-    margin-top: 7vw;
-    height: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 70%;
+  margin-top: 7vw;
+  height: 100%;
 }
 
 .img {
-    margin: 0 2vw;
-    border-bottom: 1px solid rgb(223, 221, 221);
+  display: flex;
+  justify-content: center;
+  margin: 0 2vw;
+  border-bottom: 1px solid rgb(223, 221, 221);
 }
 
 .avatar {
-    position: relative;
-    top: -5vw;
-    width: 10vw;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  position: relative;
+  top: -5vw;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .details {
-    display: grid;
-    grid-template-rows: 6vw 12vw;
-    border-right: 1px solid;
+  display: grid;
+  grid-template-rows: 6vw 12vw;
+  border-right: 1px solid;
 }
 
 .userdet {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.userdet .about {
+  display: flex;
+  justify-content: center;
 }
 
 .repos {
-    border-left: 1px solid;
-    overflow: hidden;
+  border-left: 1px solid;
+  overflow: hidden;
 }
 
 .name {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .heading {
-    position: relative;
-    top: 2vw;
-    margin: 0 2vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: relative;
+  top: 2vw;
+  margin: 0 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .heading a {
-    text-decoration: none;
-    color: rgb(155, 151, 151);
+  text-decoration: none;
+  color: rgb(155, 151, 151);
 }
 
 .repobox {
-    display: grid;
-    grid-template-columns: 48% 48%;
-    grid-template-rows: 33% 33% 33%;
-    margin: 5vw 1vw;
-    height: 76%;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-rows: 33% 33% 33%;
+  margin: 5vw 1vw;
+  height: 76%;
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid rgb(231, 230, 230);
-    width: 97%;
-    height: 95%;
-    margin: 1vw;
-    padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgb(231, 230, 230);
+  width: 97%;
+  height: 95%;
+  margin: 1vw;
+  padding: 1vw;
 }
 
 .box a {
-    text-decoration: none;
-    text-align: start;
+  text-decoration: none;
+  text-align: start;
 }
 
 .box img {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
- .box a p {
-     overflow: hidden;
-     font-size: 20px;
- }
+.box a p {
+  overflow: hidden;
+  font-size: 20px;
+}
 
- .repotitle {
-     display: flex;
- }
+.repotitle {
+  display: flex;
+}
 
- .fork {
-    font-size: 12px;
-    color: rgb(155, 153, 153);
-    display: flex;
-    text-align: start;
- }
+.fork {
+  font-size: 12px;
+  color: rgb(155, 153, 153);
+  display: flex;
+  text-align: start;
+}
 
- .des {
-     overflow: hidden;
- }
+.des {
+  overflow: hidden;
+}
 
- .lang {
-     color: rgb(245, 49, 108);
- }
+.lang {
+  color: rgb(245, 49, 108);
+}
 
- .follow {
-     display: flex;
-     justify-content: center;
- }
+.follow {
+  display: flex;
+  justify-content: center;
+}
 
- .follow p{
-     padding-right: 7px;
+.follow p {
+  padding-right: 7px;
 }
 
 .follow img {
-    width: 16px;
+  width: 16px;
 }
 
 .info {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    box-shadow: 0px 0px 10px 2px rgba(184,184,184,1);
-    width: 60%;
-    height: 70%;
-    display: grid;
-    grid-template-columns: 50% 50%;
+  box-shadow: 0px 0px 10px 2px rgba(184, 184, 184, 1);
+  width: 60%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .aboutimg {
-    display: flex;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .aboutimg img {
-    width: 90%;
+  width: 90%;
 }
 
 .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3vw;
 }
 
 .left p {
-    margin: 1vw 0;
-    font-size: 25px;
-    color: rgb(218, 191, 253);
+  margin: 1vw 0;
+  font-size: 25px;
+  color: rgb(218, 191, 253);
 }
 
 .left span {
-    margin-top: 25px;
-    font-size: 15px;
+  margin-top: 25px;
+  font-size: 15px;
 }
 
 .contact img {
-    width: 40px;
+  width: 40px;
 }
