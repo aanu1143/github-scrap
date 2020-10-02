@@ -289,3 +289,7 @@ a{
 .contact img {
     width: 40px;
 }
+
+.stats-card{
+    margin: 1rem 0;
+}
