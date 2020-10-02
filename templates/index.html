@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block static %}
+<style>
+body {
+    overflow: hidden;
+}
+</style>
+{% endblock static %}
+
 {% block content %}
 
     <div id="particles-js"></div>

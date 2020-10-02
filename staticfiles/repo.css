@@ -1,0 +1,22 @@
+body {
+    overflow: auto;
+}
+
+.cont {
+    margin: 5vw 20vw;
+}
+
+.repocont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    height: 8em;
+    padding: 10px;
+}
+
+.times {
+    color: teal;
+}
