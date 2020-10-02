@@ -3,7 +3,7 @@
         width: 70%;
     }
     .prof-tab {
-        grid-template-rows: 30% auto;
+        /* grid-template-rows: 30% auto; */
         grid-template-columns: 100%;
         margin-top: 17vw;
     }
