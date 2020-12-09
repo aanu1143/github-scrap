@@ -25,6 +25,13 @@
                     <a href="{% url 'index' %}">Home</a>
                     <a href="{% url 'about' %}">About</a>
                 </div>
+                
+            </div>
+            <div class="toggle">
+                <label class="switch">
+                    <input type="checkbox" id="switch">
+                    <span class="slider round"></span>
+                </label>
             </div>
         </div>
     </div>
@@ -35,6 +42,6 @@
     {% block jscript %}
     {% endblock jscript %}
 
+    <script src="{% static 'darkmode.js' %}"></script>
 </body>
-
 </html>
