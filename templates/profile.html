@@ -25,12 +25,13 @@
                     <div class="follow">
                         <p><img src="https://img.icons8.com/material-rounded/24/000000/add-user-male.png"/> &nbsp;{{ followers }} Followers</p>
                         <p><img src="https://img.icons8.com/windows/32/000000/following.png"/>&nbsp;{{ followings }} following</p>
-                        <p><img src="https://img.icons8.com/small/32/000000/star.png"/>&nbsp;{{ stars }}</p>
+                        <p><img src="https://img.icons8.com/small/32/000000/star.png"/>&nbsp;{{ stars }} stars</p>
                     </div>
                 {% endif %}
             </div>
             <div class="stats-card">
-                <img src="https://github-readme-stats.vercel.app/api?username={{username}}&include_all_commits=true&count_private=true&show_icons=true" width="100%" />
+                <img src="https://github-readme-stats.vercel.app/api?username={{username}}&include_all_commits=true&count_private=true&show_icons=true" class="light-icon" width="100%" />
+                <img src="https://github-readme-stats.vercel.app/api?username={{username}}&include_all_commits=true&count_private=true&show_icons=true&theme=radical" class="dark-stat" width="100%" />
             </div>
         </div>
         <div class="repos">

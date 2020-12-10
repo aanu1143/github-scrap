@@ -14,7 +14,6 @@
     }
     .repos {
         border-left: 0;
-
     }
 
     .avatar {
@@ -74,5 +73,9 @@
 
     .aboutimg {
         justify-content: center;
+    }
+    .toggle {
+        top: auto;
+        bottom: 1em;
     }
 }

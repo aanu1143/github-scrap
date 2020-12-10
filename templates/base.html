@@ -11,6 +11,7 @@
     {% endblock static %}
     <link href="{% static 'resp.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="{% static 'dark.css' %}" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 
@@ -29,7 +30,7 @@
             </div>
             <div class="toggle">
                 <label class="switch">
-                    <input type="checkbox" id="switch">
+                    <input type="checkbox" id="switch" checked>
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -42,6 +43,6 @@
     {% block jscript %}
     {% endblock jscript %}
 
-    <script src="{% static 'darkmode.js' %}"></script>
+    <script src="{% static 'dark.js' %}"></script>
 </body>
 </html>
