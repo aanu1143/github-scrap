@@ -7,14 +7,14 @@ def getUserDetail(username):
     url = "https://github.com/"+username
     page = session.get(url)
     profile_soup = BeautifulSoup(page.content, 'html.parser')
-    profile = profile_soup.find('div', class_="h-card mt-md-n5")
+    profile = profile_soup.find('div', class_="js-profile-editable-area d-flex flex-column d-md-block")
     timeline = profile.find('div', class_="p-note user-profile-bio mb-3 js-user-profile-bio f4").find('div')
     about=''
     if timeline:
         about = timeline.text
-    profile_pic = profile.find('div', class_="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0").find('img')['src']
-    name = profile.find('span', class_="p-name vcard-fullname d-block overflow-hidden").text
-    user_name = profile.find('span', class_="p-nickname vcard-username d-block").text
+    profile_pic = profile_soup.find('div', class_="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0").find('img')['src']
+    name = profile_soup.find('span', class_="p-name vcard-fullname d-block overflow-hidden").text
+    user_name = profile_soup.find('span', class_="p-nickname vcard-username d-block").text
     return {'name': name, 'username': user_name, 'img': profile_pic, 'about': about}
 
 def getFollow(username):
@@ -41,12 +41,12 @@ def getRepo(username):
     for repo in repos:
         project = repo.find('div').find('div').find('h3').find('a')
         project_name = project.text
-        timestamp = repo.find('div', class_="f6 text-gray mt-2").text
+        timestamp = repo.find('relative-time').text
         forkcontent = repo.find('span', class_="f6 text-gray mb-1")
         project_link = 'https://github.com'+ project['href']
         des = repo.find('div').find_all('div')[1].find('p')
-        temp = {'name': project_name, 'link': project_link, 'updated': timestamp[timestamp.index("Updated"):]}
-        langx = repo.find('div', class_="f6 text-gray mt-2").find('span', itemprop="programmingLanguage")
+        temp = {'name': project_name, 'link': project_link, 'updated': timestamp}
+        langx = repo.find('span', itemprop="programmingLanguage")
         fork = False
         if forkcontent:
             fork = True
@@ -77,7 +77,7 @@ def getPinnedRepo(username):
         repo['name'] = y.find('span').text
         repo['link'] = "https://github.com"+y.find('a')['href']
         des = y.find_all('p')[0].text
-        langx = y.find('p', class_="mb-0 f6 text-gray").find('span', itemprop="programmingLanguage")
+        langx = y.find('span', itemprop="programmingLanguage")
         lang = ""
         if langx:
             lang = langx.text
