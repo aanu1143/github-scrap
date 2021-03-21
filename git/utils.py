@@ -42,7 +42,7 @@ def getRepo(username):
         project = repo.find('div').find('div').find('h3').find('a')
         project_name = project.text
         timestamp = repo.find('relative-time').text
-        forkcontent = repo.find('span', class_="f6 text-gray mb-1")
+        forkcontent = repo.find('span', class_="f6 color-text-secondary mb-1")
         project_link = 'https://github.com'+ project['href']
         des = repo.find('div').find_all('div')[1].find('p')
         temp = {'name': project_name, 'link': project_link, 'updated': timestamp}
