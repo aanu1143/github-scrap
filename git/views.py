@@ -27,6 +27,7 @@ def repos(request, username):
     end = page * page_size
     repos = data[start:end]
     context = {
+        'username': username,
         'repos': repos,
         'total_repos': len(data),
         'page_size': page_size

@@ -13,6 +13,7 @@ body {
     border: 0.5px solid burlywood;
     border-top: 0;
     padding: 1vw 10vw;
+    background-color: #fff6f6;
 }
 
 .box {
@@ -28,6 +29,7 @@ body {
     display: flex;
     padding: 0px 0px 1vw 0px;
     border-bottom: 10px solid chocolate;
+    justify-content: space-between;
 }
 
 .d-flex span {
@@ -44,6 +46,11 @@ body {
     display: block;
 }
 
+.repo-flex {
+    display: flex;
+    width: -webkit-fill-available;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -54,7 +61,7 @@ body {
     display: flex;
 }
 
-.pagination a {
+.pagination a, .back-btn a {
     border-radius: 25px;
     padding: 10px 30px;
     border: 1px solid black;
@@ -63,7 +70,7 @@ body {
     color: cornflowerblue;
 }
 
-.pagination .btn:hover {
+.pagination .btn:hover, .back-btn a:hover {
     background-color: cornflowerblue;
     color: white;
     border: 0;

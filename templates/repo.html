@@ -7,9 +7,14 @@
 {% block content %}
     <div class="cont">
         <div class="d-flex">
-            <img class="repo-image-white" src="{% static 'repo-white.png' %}" alt="error">
-            <img class="repo-image-dark" src="{% static 'repo-dark.png' %}" alt="error">
-            <h2>Repositories <span>({{ total_repos }})</span></h2>
+            <div class="repo-flex">
+                <img class="repo-image-white" src="{% static 'repo-white.png' %}" alt="error">
+                <img class="repo-image-dark" src="{% static 'repo-dark.png' %}" alt="error">
+                <h2>Repositories <span>({{ total_repos }})</span></h2>
+            </div>
+            <div class="back-btn">
+                <a href="/user/{{ username }}">Back</a>
+            </div>
         </div>
         <div class="repocont">
             {% for repo in repos %}

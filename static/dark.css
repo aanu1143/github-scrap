@@ -62,7 +62,11 @@
     display: none;
 }
 
-.darkmode .pagination a {
+.darkmode .repocont {
+    background-color: #333333;
+}
+
+.darkmode .pagination a, .darkmode .back-btn a {
     border: 2px solid white;
 }
 
