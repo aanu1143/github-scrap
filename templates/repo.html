@@ -9,7 +9,7 @@
         <div class="d-flex">
             <img class="repo-image-white" src="{% static 'repo-white.png' %}" alt="error">
             <img class="repo-image-dark" src="{% static 'repo-dark.png' %}" alt="error">
-            <h2>Repositories <span>({{ repos|length }})</span></h2>
+            <h2>Repositories <span>({{ total_repos }})</span></h2>
         </div>
         <div class="repocont">
             {% for repo in repos %}
@@ -35,5 +35,38 @@
                 </div>
             {% endfor %}
         </div>
+        <div class="pagination">
+            <div class="buttons">
+                <a id="prev-btn" class="btn">Prev</a>
+                <a id="next-btn" class="btn">Next</a>
+            </div>
+        </div>
     </div>
 {% endblock content %}
+
+{% block jscript %}
+    <script>
+        var prev_btn = document.getElementById('prev-btn'),
+            next_btn = document.getElementById('next-btn'),
+            page = window.location.search.substring(6),
+            total_repo = {{ total_repos }},
+            page_size = {{ page_size }},
+            last_page = Math.ceil(total_repo / page_size),
+            page_number;
+        
+        page_number = page !== "" ? parseInt(page) : 1;
+
+        if (page_number === 1) {
+            prev_btn.href = "javascript:void(0)";
+            prev_btn.className = "disable";
+        } else {
+            prev_btn.href = "?page=" + (page_number - 1).toString();
+        }
+        if (page_number === last_page) {
+            next_btn.href = "javascript:void(0)";
+            next_btn.className = "disable";
+        } else {
+            next_btn.href = "?page=" + (page_number + 1).toString();
+        }
+    </script>
+{% endblock jscript %}

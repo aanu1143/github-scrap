@@ -20,8 +20,18 @@ def gituser(request, username):
 
 @cache_page(60*60)
 def repos(request, username):
+    page = int(request.GET.get('page', default = 1))
+    page_size = int(request.GET.get('page-size', default = 6))
     data = getRepo(username)
-    return render(request, 'repo.html', {'repos': data})
+    start = (page - 1) * page_size
+    end = page * page_size
+    repos = data[start:end]
+    context = {
+        'repos': repos,
+        'total_repos': len(data),
+        'page_size': page_size
+        }
+    return render(request, 'repo.html', context)
 
 
 @cache_page(60*60)

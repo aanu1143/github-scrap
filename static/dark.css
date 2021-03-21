@@ -61,6 +61,11 @@
 .darkmode .d-flex .repo-image-dark {
     display: none;
 }
+
+.darkmode .pagination a {
+    border: 2px solid white;
+}
+
 @media screen and (max-width: 700px) {
     .darkmode .prof-tab {
         box-shadow: none;

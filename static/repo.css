@@ -27,7 +27,7 @@ body {
 .d-flex {
     display: flex;
     padding: 0px 0px 1vw 0px;
-    border-bottom: 2px solid chocolate;
+    border-bottom: 10px solid chocolate;
 }
 
 .d-flex span {
@@ -42,4 +42,34 @@ body {
 
 .d-flex .repo-image-dark {
     display: block;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vw;
+}
+
+.pagination .buttons {
+    display: flex;
+}
+
+.pagination a {
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: 1px solid black;
+    font-size: 20px;
+    margin: 6px;
+    color: cornflowerblue;
+}
+
+.pagination .btn:hover {
+    background-color: cornflowerblue;
+    color: white;
+    border: 0;
+}
+
+.disable {
+    cursor: default;
+    opacity: 0.5;
 }
