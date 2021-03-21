@@ -50,6 +50,17 @@
     background-color:  #2e3b50;
 }
 
+.darkmode .d-flex {
+    color:  #f8f8f8;
+}
+
+.darkmode .d-flex .repo-image-white {
+    display: block;
+}
+
+.darkmode .d-flex .repo-image-dark {
+    display: none;
+}
 @media screen and (max-width: 700px) {
     .darkmode .prof-tab {
         box-shadow: none;

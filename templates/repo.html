@@ -6,6 +6,11 @@
  
 {% block content %}
     <div class="cont">
+        <div class="d-flex">
+            <img class="repo-image-white" src="{% static 'repo-white.png' %}" alt="error">
+            <img class="repo-image-dark" src="{% static 'repo-dark.png' %}" alt="error">
+            <h2>Repositories <span>({{ repos|length }})</span></h2>
+        </div>
         <div class="repocont">
             {% for repo in repos %}
                 <div class="box">

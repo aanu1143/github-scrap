@@ -3,13 +3,16 @@ body {
 }
 
 .cont {
-    margin: 5vw 20vw;
+    margin: 2vw 10vw;
 }
 
 .repocont {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    border: 0.5px solid burlywood;
+    border-top: 0;
+    padding: 1vw 10vw;
 }
 
 .box {
@@ -19,4 +22,24 @@ body {
 
 .times {
     color: teal;
+}
+
+.d-flex {
+    display: flex;
+    padding: 0px 0px 1vw 0px;
+    border-bottom: 2px solid chocolate;
+}
+
+.d-flex span {
+    font-weight: 100;
+    font-size: 20px;
+    color: #e65671;
+}
+
+.d-flex .repo-image-white {
+    display: none;
+}
+
+.d-flex .repo-image-dark {
+    display: block;
 }
