@@ -2,6 +2,9 @@ from .session import get_session
 from bs4 import BeautifulSoup
 
 
+def parseString(string):
+    return ' '.join(string.split())
+
 def getUserDetail(username):
     session = get_session()
     url = "https://github.com/"+username
@@ -14,7 +17,9 @@ def getUserDetail(username):
         about = timeline.text
     profile_pic = profile_soup.find('div', class_="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0").find('img')['src']
     name = profile_soup.find('span', class_="p-name vcard-fullname d-block overflow-hidden").text
+    name = parseString(name)
     user_name = profile_soup.find('span', class_="p-nickname vcard-username d-block").text
+    user_name =parseString(user_name)
     return {'name': name, 'username': user_name, 'img': profile_pic, 'about': about}
 
 def getFollow(username):
@@ -45,7 +50,7 @@ def getRepo(username):
         forkcontent = repo.find('span', class_="f6 color-text-secondary mb-1")
         project_link = 'https://github.com'+ project['href']
         des = repo.find('div').find_all('div')[1].find('p')
-        temp = {'name': project_name, 'link': project_link, 'updated': timestamp}
+        temp = {'name': parseString(project_name), 'link': project_link, 'updated': timestamp}
         langx = repo.find('span', itemprop="programmingLanguage")
         fork = False
         if forkcontent:
@@ -57,7 +62,7 @@ def getRepo(username):
         if langx:
             temp['lang'] = langx.text
         if des:
-            temp['des'] = des.text
+            temp['des'] = parseString(des.text)
         else:
             temp['des'] = None
         data.append(temp)
@@ -69,7 +74,7 @@ def getPinnedRepo(username):
     profile_page = session.get(url)
     profile_soup = BeautifulSoup(profile_page.content, 'html.parser')
     reposi = profile_soup.find('div', class_="js-pinned-items-reorder-container")
-    title = reposi.find('h2').text
+    title = parseString(reposi.find('h2').text)
     repolist = reposi.find('ol').find_all('li')
     reposlist = []
     for y in repolist:
@@ -89,7 +94,7 @@ def getPinnedRepo(username):
             des = y.find_all('p')[1].text
             repo['forkdata'] = {'text': forked, 'link': forkedLink}
         repo['lang'] = lang
-        repo['des'] = des
+        repo['des'] = parseString(des)
         repo['fork'] = forkedFlag
         reposlist.append(repo)
     return {'title': title, 'repolist': reposlist}

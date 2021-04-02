@@ -13,7 +13,7 @@
                 <h2>Repositories <span>({{ total_repos }})</span></h2>
             </div>
             <div class="back-btn">
-                <a href="/user/{{ username }}">Back</a>
+                <a href="{% url 'gituser' username %}">Back</a>
             </div>
         </div>
         <div class="repocont">

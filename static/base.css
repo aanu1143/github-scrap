@@ -121,6 +121,7 @@ a{
 
 .profile {
     text-align: -webkit-center;
+    text-align: -moz-center;
 }
 
 .prof-tab {
