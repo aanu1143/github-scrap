@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
-from .utils import getUserDetail, getPinnedRepo, getFollow, getRepo
+from .utils import getUserDetail, getPinnedRepo, getFollow, getRepo, get_user_email
 
 @cache_page(60*60)
 def index(request):
@@ -14,6 +14,9 @@ def gituser(request, username):
         follows = getFollow(username)
         if follows:
             data.update(follows)
+        user_email = get_user_email(username)
+        if user_email:
+            data['email'] = user_email
         return render(request, 'profile.html', data)
     except:
         return render(request, 'error.html')

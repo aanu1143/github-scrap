@@ -1,6 +1,11 @@
 from .session import get_session
 from bs4 import BeautifulSoup
+import requests
+import json
 
+def get_response(url):
+    response = requests.get(url)
+    return json.loads(response.text)
 
 def parseString(string):
     return ' '.join(string.split())
@@ -98,3 +103,35 @@ def getPinnedRepo(username):
         repo['fork'] = forkedFlag
         reposlist.append(repo)
     return {'title': title, 'repolist': reposlist}
+
+def get_user_email(user):
+    api_url = "https://api.github.com/"
+    profile_url = api_url + "users/{0}".format(user)
+    response = get_response(profile_url)
+
+    if 'message' in response:
+        return False
+
+    user_name = response['name']
+
+    if response['email']:
+        return response['email']
+
+    users_repository_url = api_url + "users/{0}/repos?type=owner&sort=updated".format(user)
+    response = get_response(users_repository_url)
+
+    for repo in response:
+        if not repo['fork']:
+            repo_name = repo['full_name']
+            repo_commit_url = api_url + "repos/{0}/commits".format(repo_name)
+            commit_reponse = get_response(repo_commit_url)
+
+            poss = ['committer', 'author']
+
+            for commit in commit_reponse:
+                for i in poss:
+                    if commit['commit'][i]['name'] == user_name:
+                        email_string = commit['commit'][i]['email']
+                        if "noreply" not in email_string:
+                            return email_string
+    return False

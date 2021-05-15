@@ -21,6 +21,11 @@
                 <div class="about">
                     <p>{{ about }}</p>
                 </div>
+                {% if email %}
+                    <div class="email">
+                        <a href="mailto:{{ email }}">{{ email }}</a>
+                    </div>
+                {% endif %}
                 {% if followers %}
                     <div class="follow">
                         <p><img src="https://img.icons8.com/material-rounded/24/000000/add-user-male.png"/> &nbsp;{{ followers }} Followers</p>
